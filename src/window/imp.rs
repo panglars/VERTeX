@@ -1,25 +1,26 @@
-use std::cell::RefCell;
-
 use glib::subclass::InitializingObject;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib, CompositeTemplate, Entry, ListView};
+use gtk::{gio, glib, Box, CompositeTemplate, Entry, ListBox, ListView};
 
 // Object holding the state
 #[derive(CompositeTemplate, Default)]
 #[template(resource = "/org/panglars/vertex/window.ui")]
 pub struct Window {
     #[template_child]
-    pub entry: TemplateChild<Entry>,
+    pub modle_panel: TemplateChild<ListBox>,
     #[template_child]
-    pub tasks_list: TemplateChild<ListView>,
-    pub tasks: RefCell<Option<gio::ListStore>>,
+    pub sidebar_list: TemplateChild<Box>,
+    #[template_child]
+    pub messages_list: TemplateChild<ListView>,
+    #[template_child]
+    pub message_entry: TemplateChild<Entry>,
 }
 
 // The central trait for subclassing a GObject
 #[glib::object_subclass]
 impl ObjectSubclass for Window {
     // `NAME` needs to match `class` attribute of template
-    const NAME: &'static str = "MainWindow";
+    const NAME: &'static str = "VERTeX";
     type Type = super::Window;
     type ParentType = gtk::ApplicationWindow;
 
@@ -37,12 +38,6 @@ impl ObjectImpl for Window {
     fn constructed(&self) {
         // Call "constructed" on parent
         self.parent_constructed();
-
-        // Setup
-        let obj = self.obj();
-        obj.setup_tasks();
-        obj.setup_callbacks();
-        obj.setup_factory();
     }
 }
 
