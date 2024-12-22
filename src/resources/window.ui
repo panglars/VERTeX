@@ -19,7 +19,7 @@
               <class name="sidebar"/>
             </style>
             <child>
-              <object class="GtkListBox" id="modle_panel">
+              <object class="GtkListBox" id="model_panel">
                 <property name="selection-mode">1</property>
                 <style>
                   <class name="navigation-sidebar"/>
@@ -40,7 +40,7 @@
                 </style>
                 <child>
                   <object class="GtkButton">
-                    <property name="label">Modle Name</property>
+                    <property name="label">Model Name</property>
                   </object>
                 </child>
               </object>

@@ -7,7 +7,7 @@ use gtk::{gio, glib, Box, CompositeTemplate, Entry, ListBox, ListView};
 #[template(resource = "/org/panglars/vertex/window.ui")]
 pub struct Window {
     #[template_child]
-    pub modle_panel: TemplateChild<ListBox>,
+    pub model_panel: TemplateChild<ListBox>,
     #[template_child]
     pub sidebar_list: TemplateChild<Box>,
     #[template_child]
