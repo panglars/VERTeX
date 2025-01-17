@@ -1,6 +1,6 @@
 use glib::subclass::InitializingObject;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib, Box, CompositeTemplate, Entry, ListBox, ListView};
+use gtk::{glib, Box, CompositeTemplate, Entry, ListBox, ListView};
 
 // Object holding the state
 #[derive(CompositeTemplate, Default)]

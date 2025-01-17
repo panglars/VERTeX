@@ -1,5 +1,5 @@
-mod task_object;
-mod task_row;
+mod message_object;
+mod message_row;
 mod window;
 
 use gtk::prelude::*;
@@ -25,5 +25,7 @@ fn main() -> glib::ExitCode {
 fn build_ui(app: &adw::Application) {
     // Create a new custom window and present it
     let window = Window::new(app);
+
+    // Present window
     window.present();
 }
